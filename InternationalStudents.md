@@ -306,34 +306,34 @@ library(dplyr)
 taiwanout<-read_csv("C:/Users/win/Desktop/Student_RPT_07.csv",skip=2)
 ```
 
-    ## Warning: Missing column names filled in: 'X1' [1], 'X2' [2], 'X7' [7],
-    ## 'X8' [8], 'X9' [9], 'X10' [10]
+    ## Warning: Duplicated column names deduplicated: '1' => '1_1' [13], '1' =>
+    ## '1_2' [14]
 
     ## Parsed with column specification:
     ## cols(
-    ##   X1 = col_integer(),
-    ##   X2 = col_integer(),
-    ##   設立別 = col_character(),
-    ##   學校類別 = col_character(),
-    ##   學校代碼 = col_character(),
-    ##   學校名稱 = col_character(),
-    ##   X7 = col_integer(),
-    ##   X8 = col_character(),
-    ##   X9 = col_character(),
-    ##   X10 = col_character(),
-    ##   中文名稱 = col_character(),
-    ##   英文名稱 = col_character(),
-    ##   小計 = col_integer(),
-    ##   男 = col_integer(),
-    ##   女 = col_integer()
+    ##   `102` = col_integer(),
+    ##   `2` = col_integer(),
+    ##   公立 = col_character(),
+    ##   一般大學 = col_character(),
+    ##   `1` = col_integer(),
+    ##   國立政治大學 = col_character(),
+    ##   `220326` = col_integer(),
+    ##   土耳其語文學系 = col_character(),
+    ##   `學士班(日間)` = col_character(),
+    ##   土耳其 = col_character(),
+    ##   伊斯坦堡大學 = col_character(),
+    ##   `ISTANBUL UNIVERSITY` = col_character(),
+    ##   `1_1` = col_integer(),
+    ##   `1_2` = col_integer(),
+    ##   `0` = col_integer()
     ## )
 
     ## Warning in rbind(names(probs), probs_f): number of columns of result is not
     ## a multiple of vector length (arg 1)
 
-    ## Warning: 10 parsing failures.
-    ## row # A tibble: 5 x 5 col     row col   expected               actual                        file    expected   <int> <chr> <chr>                  <chr>                         <chr>   actual 1 23579 X7    no trailing characters A2                            'C:/Us~ file 2 34284 X7    no trailing characters A2                            'C:/Us~ row 3 35022 X1    an integer             蝯梯?隤芣?嚗?                 'C:/Us~ col 4 35023 X1    no trailing characters ". ?祈”閮剔??乩??\uf2e7\u0080\ue~ 'C:/Us~ expected 5 35024 X1    no trailing characters ". ?祈”?\uf5fa飛?嗚\u0080\uf696~ 'C:/Us~
-    ## ... ................. ... .......................................................................... ........ .......................................................................... ...... .......................................................................... .... .......................................................................... ... ..................................................................... ... .......................................................................... ........ ..........................................................................
+    ## Warning: 27 parsing failures.
+    ## row # A tibble: 5 x 5 col     row col    expected               actual file                          expected   <int> <chr>  <chr>                  <chr>  <chr>                         actual 1  2614 220326 no trailing characters A2     'C:/Users/win/Desktop/Studen~ file 2  2926 220326 no trailing characters A2     'C:/Users/win/Desktop/Studen~ row 3 17510 1      no trailing characters R01    'C:/Users/win/Desktop/Studen~ col 4 22688 1      no trailing characters R01    'C:/Users/win/Desktop/Studen~ expected 5 23289 1      no trailing characters R01    'C:/Users/win/Desktop/Studen~
+    ## ... ................. ... .......................................................................... ........ .......................................................................... ...... .......................................................................... .... .......................................................................... ... .......................................................................... ... .......................................................................... ........ ..........................................................................
     ## See problems(...) for more details.
 
 ``` r
@@ -352,18 +352,18 @@ group_by(taiwanout,`國別(地區)`)%>%
     ## Warning: package 'bindrcpp' was built under R version 3.4.4
 
     ## # A tibble: 10 x 2
-    ##    `國別(地區)`      人數
-    ##    <chr>            <int>
-    ##  1 日本              6160
-    ##  2 中國大陸          5702
-    ##  3 美國              4709
-    ##  4 大陸地區          2938
-    ##  5 南韓              1699
-    ##  6 法國              1671
-    ##  7 大韓民國(南韓)    1232
-    ##  8 德國              1142
-    ##  9 德意志聯邦共和國   904
-    ## 10 英國               773
+    ##    `國別(地區)`    人數
+    ##    <chr>          <int>
+    ##  1 大陸地區        8640
+    ##  2 日本            6160
+    ##  3 美國            4709
+    ##  4 大韓民國(南韓)  2931
+    ##  5 德國            2046
+    ##  6 法國            1671
+    ##  7 英國             773
+    ##  8 荷蘭             669
+    ##  9 加拿大           610
+    ## 10 西班牙           575
 
 ### 哪間大學的出國交流學生數最多呢？
 
@@ -378,7 +378,7 @@ group_by(taiwanout,學校名稱)%>%
     ##    學校名稱          人數
     ##    <chr>            <int>
     ##  1 國立臺灣大學      3548
-    ##  2 國立政治大學      2984
+    ##  2 國立政治大學      2983
     ##  3 淡江大學          1208
     ##  4 國立交通大學      1197
     ##  5 國立清華大學      1059

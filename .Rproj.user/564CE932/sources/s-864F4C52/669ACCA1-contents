@@ -70,6 +70,7 @@ group_by(taiwanout,`國別(地區)`)%>%
   arrange(desc(人數))%>%
   head(10)
 
+
 ##Q4-2
 group_by(taiwanout,學校名稱)%>%
   summarise(人數=n())%>%
